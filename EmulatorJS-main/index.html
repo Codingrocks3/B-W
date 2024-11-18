@@ -132,7 +132,7 @@
             input.onchange = async () => {
                 input.files = ["/Pokemon_Emerald_2.gba"]
                 const url = input.files[0]
-                const parts = input.files[0].split(".")
+                const parts = input.files[0].name.split(".")
 
                 const core = await (async (ext) => {
                     if (["fds", "nes", "unif", "unf"].includes(ext))
