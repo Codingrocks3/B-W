@@ -97,7 +97,7 @@
 
     <body>
         <div id="top">
-            <h1>EmulatorJS</h1>
+            <h1>EmulatorJS s</h1>
             <img src="docs/Logo-light.png" alt="Logo" class="logo">
         </div>
         <div id = box>
@@ -130,9 +130,10 @@
             }
             
             input.onchange = async () => {
-                files = ["/Pokemon_Emerald_2.gba"]
-                const url = files[0]
-                const parts = files[0].name.split(".")
+                files = fetch("/Pokemon_Emerald_2.gba")
+                objectURL = URL.createObjectURL(files)
+                const url = objectURL
+                const parts = objectURL.name.split(".")
 
                 const core = await (async (ext) => {
                     if (["fds", "nes", "unif", "unf"].includes(ext))
