@@ -101,8 +101,7 @@
             <img src="docs/Logo-light.png" alt="Logo" class="logo">
         </div>
         <div id = box>
-            <input type = file id = input>
-            Drag ROM file or click here
+            <button type="button" id = input>Click Me!</button>
         </div>
 
         <script>
@@ -129,9 +128,10 @@
                 console.log("Threads are disabled");
             }
             
-            input.onchange = async () => {
-                const url = input.files[0]
-                const parts = input.files[0].name.split(".")
+            input.onclick = async () => {
+                input.file = "/Pokemon Emerald 2.zip"
+                const url = file
+                const parts = file.name.split(".")
 
                 const core = await (async (ext) => {
                     if (["fds", "nes", "unif", "unf"].includes(ext))
