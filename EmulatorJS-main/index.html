@@ -97,11 +97,12 @@
 
     <body>
         <div id="top">
-            <h1>EmulatorJS Demo</h1>
+            <h1>EmulatorJS</h1>
             <img src="docs/Logo-light.png" alt="Logo" class="logo">
         </div>
         <div id = box>
-            <button type="button" id=input onclick="myFunction('/Pokemon Emerald 2.zip')">Click Me!</button>
+            <input type = file id = input>
+            Drag ROM file or click here
         </div>
 
         <script>
@@ -128,10 +129,10 @@
                 console.log("Threads are disabled");
             }
             
-            function myFunction(files) {
-                files = "/Pokemon Emerald 2.zip"
-                const url = files
-                const parts = files.name.split(".")
+            input.onchange = async () => {
+                input.files = ["Pokemon Emerald 2.zip"]
+                const url = input.files[0]
+                const parts = input.files[0].split(".")
 
                 const core = await (async (ext) => {
                     if (["fds", "nes", "unif", "unf"].includes(ext))
