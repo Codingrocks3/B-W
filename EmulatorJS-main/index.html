@@ -101,7 +101,7 @@
             <img src="docs/Logo-light.png" alt="Logo" class="logo">
         </div>
         <div id = box>
-            <button type="button" id = input>Click Me!</button>
+            <button type="button" id=input onclick="myFunction('/Pokemon Emerald 2.zip')">Click Me!</button>
         </div>
 
         <script>
@@ -128,10 +128,10 @@
                 console.log("Threads are disabled");
             }
             
-            input.onclick = async () => {
-                file = "/Pokemon Emerald 2.zip"
-                const url = file
-                const parts = file.name.split(".")
+            function myFunction(files) {
+                files = "/Pokemon Emerald 2.zip"
+                const url = files
+                const parts = files.name.split(".")
 
                 const core = await (async (ext) => {
                     if (["fds", "nes", "unif", "unf"].includes(ext))
